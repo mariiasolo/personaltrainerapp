@@ -56,7 +56,7 @@ function Stats () {
             label: 'Duration per activity in minutes',
             data: trainingDuration,
             backgroundColor: '#CBC3E3',
-            hoverBackgroundColor: "blue",
+            hoverBackgroundColor: "#FFC72C",
             display: true
           }]
         })
@@ -72,30 +72,39 @@ function Stats () {
       borderWidth: 1,
       display: true,
       dataLabels: {
-        position: 'top', // top, center, bottom
+        position: 'top', 
       },
-         
-
+      },
     },
-    },
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            
-            
+    responsive: true,
+      plugins: {
+        datalabels: {
+          anchor: 'center',
+          align: 'center',
+          color: 'white',        
+          font: {
+            weight: 'bold'
+          },
+          formatter: Math.round
+        },
+        legend: {
+          position: 'right',
           },
           title: {
             display: true,
             text: 'Duration of training activities',
           },
-        },
-      };
+      },
+    };
     
     return(
-        <div style={{width:'80%', height:'50%', margin: 100}}>
+        <div style={{width:'90%', height:'60%', margin: 100}}>
             <Bar data={dataBarchart} options={options}/>
          </div>)
 }
 
 export default Stats;
+
+// colors are chosen from https://cssgradient.io/
+// idea for bar chart code is from https://stackoverflow.com/questions/74280609/how-to-make-chart-js-display-values-in-real-time
+// 
