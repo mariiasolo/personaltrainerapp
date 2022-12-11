@@ -26,10 +26,10 @@ function Customers() {
         {headerName: 'Name', field: 'firstname', sortable: true, filter: true, width: 100},
         {field: 'lastname', sortable: true, filter: true, width: 130},
         {headerName: 'Address', field: 'streetaddress', sortable: true, filter: true, width: 130},
-        {field: 'postcode', sortable: true, filter: true, width: 100},
+        {field: 'postcode', sortable: true, filter: true, width: 120},
         {field: 'city', sortable: true, filter: true, width: 110},
         {field: 'email', sortable: true, filter: true},
-        {field: 'phone', sortable: true, filter: true, width: 100},
+        {field: 'phone', sortable: true, filter: true, width: 170},
         {
             headerName: '',
             width: 60,
@@ -146,11 +146,11 @@ function Customers() {
 
     
     return(
-        <div className="ag-theme-material" style={{ height: 500, width: '90%', margin: 70}}>
+        <div className="ag-theme-material" style={{ height: 500, width: '90%', margin: '70px 30px 30px 10px'}}>
         <Stack 
             direction="row" 
-            spacing={1} 
-            m={1} 
+            spacing={2} 
+            m={2} 
             display="flex" 
             justifyContent="flex-end" 
             alignItems="flex-end">

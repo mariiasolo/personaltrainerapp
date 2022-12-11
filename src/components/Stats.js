@@ -21,13 +21,13 @@ ChartJS.register(
 
 function Stats () {
    
-  const [trainigBarChart, setTrainingBarChart] = useState({
+  const [dataBarchart, setDataBarchart] = useState({
     labels:[],
     datasets: [{
       label: '',
       data: [],
-      backgroundColor: ''
-    }]
+      backgroundColor: '',
+   }]
   });
 
     
@@ -37,8 +37,8 @@ function Stats () {
     
     
   const fetchData = () => {
-    const activity = []
-    const duration = [];
+    const trainingActivity = []
+    const trainingDuration = [];
       fetch(API_URL + '/gettrainings')
       .then(response => {
         if(response.ok) {
@@ -47,15 +47,17 @@ function Stats () {
       })
       .then(responseData => {
         for (const data of responseData) {
-          duration.push(data.duration); 
-          activity.push(data.activity); 
+          trainingDuration.push(data.duration); 
+          trainingActivity.push(data.activity); 
         }
-        setTrainingBarChart({
-          labels:activity,
+        setDataBarchart({
+          labels:trainingActivity,
           datasets: [{
-            label: 'Duration',
-            data: duration,
-            backgroundColor: 'purple'
+            label: 'Duration per activity in minutes',
+            data: trainingDuration,
+            backgroundColor: '#CBC3E3',
+            hoverBackgroundColor: "blue",
+            display: true
           }]
         })
       }
@@ -68,12 +70,19 @@ function Stats () {
     elements: {
       bar: {
       borderWidth: 1,
+      display: true,
+      dataLabels: {
+        position: 'top', // top, center, bottom
+      },
+         
+
     },
     },
         responsive: true,
         plugins: {
           legend: {
             position: 'bottom',
+            
             
           },
           title: {
@@ -85,7 +94,7 @@ function Stats () {
     
     return(
         <div style={{width:'80%', height:'50%', margin: 100}}>
-            <Bar data={trainigBarChart} options={options}/>
+            <Bar data={dataBarchart} options={options}/>
          </div>)
 }
 

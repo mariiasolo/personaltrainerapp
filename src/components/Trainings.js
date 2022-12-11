@@ -90,7 +90,7 @@ function Trainings() {
     }, []);
     
     return(
-        <div className="ag-theme-material" style={{ height: 500, width: '100%', margin: 20}}>
+        <div className="ag-theme-material" style={{ height: 500, width: '90%', margin: '70px 30px 30px 10px'}}>
         <Stack direction="row" spacing={2} m={2} display="flex" justifyContent="flex-end" alignItems="flex-end">
         <Tooltip title="Export file">
         <IconButton variant="outlined" onClick={exportButton}>
@@ -105,7 +105,7 @@ function Trainings() {
                 columnDefs={columns}
                 rowData={training}
                 pagination={true}
-                paginationPageSize={12}
+                paginationPageSize={10}
                 suppressCellFocus={true}
                 suppressExcelExport={true}
                />
