@@ -146,7 +146,7 @@ function Customers() {
 
     
     return(
-        <>
+        <div className="ag-theme-material" style={{ height: 500, width: '90%', margin: 70}}>
         <Stack 
             direction="row" 
             spacing={1} 
@@ -154,6 +154,7 @@ function Customers() {
             display="flex" 
             justifyContent="flex-end" 
             alignItems="flex-end">
+            
                 
             <AddCustomer addCustomer={addCustomer} />
 
@@ -185,7 +186,7 @@ function Customers() {
             message="The customer was deleted successfully!"
         />
             
-        </>
+        </div>
     );
 
 

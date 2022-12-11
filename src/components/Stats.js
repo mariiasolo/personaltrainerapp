@@ -4,12 +4,12 @@ import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    ArcElement,
+    BarElement,
     Tooltip, 
     Legend
   } from 'chart.js';
 
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 
 
@@ -18,7 +18,7 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(
     CategoryScale,
     LinearScale,
-    ArcElement,
+    BarElement,
     Tooltip, 
     Legend
   );
@@ -95,7 +95,7 @@ function Stats () {
     
     return(
         <div style={{width:'80%', height:'50%', margin: 100}}>
-            <Pie data={chartTraining} options={options}/>
+            <Bar data={chartTraining} options={options}/>
          </div>)
 }
 

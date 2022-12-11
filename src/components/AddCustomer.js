@@ -39,7 +39,7 @@ function AddCustomer({ addCustomer }) {
   
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} style = {{marginTop: 10}}>
+      <Button variant="outlined" onClick={handleClickOpen} style = {{marginLeft: 800, color: 'black' }}>
         + New customer
       </Button>
 
