@@ -90,7 +90,7 @@ function Trainings() {
     }, []);
     
     return(
-        <div className="ag-theme-material" style={{ height: 500, width: '90%', margin: 70}}>
+        <div className="ag-theme-material" style={{ height: 500, width: '100%', margin: 20}}>
         <Stack direction="row" spacing={2} m={2} display="flex" justifyContent="flex-end" alignItems="flex-end">
         <Tooltip title="Export file">
         <IconButton variant="outlined" onClick={exportButton}>
@@ -99,7 +99,7 @@ function Trainings() {
         </Tooltip>
 
         </Stack>
-          <div className="ag-theme-material" style={{height: 800, width: '100%'}}>
+          <div className="ag-theme-material" style={{height: 700, width: '100%'}}>
           <AgGridReact
                 ref={gridRef}
                 columnDefs={columns}

@@ -11,10 +11,6 @@ import {
 
 import { Bar } from 'react-chartjs-2';
 
-
-
-
- 
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -25,61 +21,55 @@ ChartJS.register(
 
 function Stats () {
    
-    const [chartTraining, setChartTraining] = useState({
-        labels:[],
-        datasets: [
-          {
-            label: '',
-            data: [],
-            backgroundColor: ''
-          }
-        ]
-      });
+  const [trainigBarChart, setTrainingBarChart] = useState({
+    labels:[],
+    datasets: [{
+      label: '',
+      data: [],
+      backgroundColor: ''
+    }]
+  });
 
     
-    useEffect(() => { 
-        fetchData(); 
-    }, [])
+  useEffect(() => { 
+    fetchData(); 
+  }, [])
     
     
-    const fetchData = () => {
-        const activity = []
-        const duration = [];
-        fetch(API_URL + '/gettrainings')
-        .then(response => {
-            if(response.ok) {
-                return response.json(); 
-            } else throw new Error (response.status)
-        })
-        .then(responseData => {
-            for (const data of responseData) {
-                duration.push(data.duration); 
-                activity.push(data.activity); 
-            }
-            setChartTraining({
-                labels:activity,
-                datasets: [
-                  {
-                    label: 'Duration',
-                    data: duration,
-                    backgroundColor: 'pink'
-                  }
-                ]
-              })
+  const fetchData = () => {
+    const activity = []
+    const duration = [];
+      fetch(API_URL + '/gettrainings')
+      .then(response => {
+        if(response.ok) {
+          return response.json(); 
+        } else throw new Error (response.status)
+      })
+      .then(responseData => {
+        for (const data of responseData) {
+          duration.push(data.duration); 
+          activity.push(data.activity); 
         }
-        )
-        .catch(err => console.error(err))
+        setTrainingBarChart({
+          labels:activity,
+          datasets: [{
+            label: 'Duration',
+            data: duration,
+            backgroundColor: 'purple'
+          }]
+        })
+      }
+      )
+      .catch(err => console.error(err))
     }
 
-
-    
-    const options = {
-        indexAxis: 'x',
-        elements: {
-          bar: {
-            borderWidth: 1,
-          },
-        },
+  const options = {
+    indexAxis: 'x',
+    elements: {
+      bar: {
+      borderWidth: 1,
+    },
+    },
         responsive: true,
         plugins: {
           legend: {
@@ -95,7 +85,7 @@ function Stats () {
     
     return(
         <div style={{width:'80%', height:'50%', margin: 100}}>
-            <Bar data={chartTraining} options={options}/>
+            <Bar data={trainigBarChart} options={options}/>
          </div>)
 }
 

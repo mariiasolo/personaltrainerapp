@@ -23,28 +23,28 @@ function Customers() {
     const [open, setOpen] = useState(false);
 
     const [columns] = useState([
-        {field: 'firstname', sortable: true, filter: true, width: 130},
+        {headerName: 'Name', field: 'firstname', sortable: true, filter: true, width: 100},
         {field: 'lastname', sortable: true, filter: true, width: 130},
-        {field: 'streetaddress', sortable: true, filter: true},
-        {field: 'postcode', sortable: true, filter: true, width: 125},
+        {headerName: 'Address', field: 'streetaddress', sortable: true, filter: true, width: 130},
+        {field: 'postcode', sortable: true, filter: true, width: 100},
         {field: 'city', sortable: true, filter: true, width: 110},
         {field: 'email', sortable: true, filter: true},
-        {field: 'phone', sortable: true, filter: true, width: 110},
+        {field: 'phone', sortable: true, filter: true, width: 100},
         {
             headerName: '',
-            width: 100,
+            width: 60,
             field: 'links.0.href',
             cellRenderer: params => <AddTraining params = {params.value} addTraining = {addTraining} />
         },
         {
             headerName: '',
-            width: 100,
+            width: 60,
             field: 'links.0.href',
             cellRenderer: params => <EditCustomer params = {params} updateCustomer = {updateCustomer} />
         },
         {
             headerName: '',
-            width: 100,
+            width: 60,
             field: 'links.0.href',
             cellRenderer: params => 
             <Tooltip title="Delete customer">
@@ -172,7 +172,7 @@ function Customers() {
                 columnDefs={columns}
                 rowData={customers}
                 pagination={true}
-                paginationPageSize={9}
+                paginationPageSize={10}
                 suppressCellFocus={true}
                 ref={gridRef}
                 suppressExcelExport={true}
@@ -181,7 +181,7 @@ function Customers() {
 
         <Snackbar 
             open={open}
-            autoHideDuration={3000}
+            autoHideDuration={2000}
             onClose={() => setOpen(false)}
             message="The customer was deleted successfully!"
         />
